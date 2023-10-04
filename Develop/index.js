@@ -16,11 +16,6 @@ inquirer
         },
         {
             type: 'input',
-            message: 'Table of Contents?',
-            name: 'table of contents',
-        },
-        {
-            type: 'input',
             message: 'Installation?',
             name: 'installation',
         },
@@ -57,11 +52,29 @@ inquirer
         },
     ])
 .then((response) => {
-    const readMe = `# ${response.title}
+    const readMe = `
+# ${response.title}
+## Badges
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+    
 ## Description 
 ${response.description}
 ## Table of Contents 
-${response.tableofcontents}
+    
+[Description](#Description)
+    
+[Installation](#Installation)
+    
+[Usage](#Usage)
+    
+[Licenses](#Licenses)
+    
+[Contributors](#Contributors)
+    
+[Tests](#Tests)
+    
+[Questions](#Questions)
+    
 ## Installation 
 To install necessary dependencies, run the following command:
 ${response.installation}
@@ -75,13 +88,13 @@ ${response.contributors}
 To run tests, run the following command:
 ${response.tests}
 ## Questions? 
-If you have any questions about the repo, please contact me directly at ${response.email} or to see more of my work, my github username is ${response.github}.`; 
+If you have any questions about the repo, please contact me directly at ${response.email} or to see more of my work, my github username is ${response.github}.`;
+
     fs.writeFile('README.md', readMe, (err) => {
         if (err) throw err;
         console.log("README created!")
     })
-}
-);
+});
 
 // const questions = [];
 
