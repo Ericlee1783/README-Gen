@@ -30,9 +30,10 @@ inquirer
             name: 'usage',
         },
         {
-            type: 'input',
-            message: 'License?',
+            type: 'list',
+            message: 'What kind of license should you project have?',
             name: 'license',
+            choices: ['MIT','APACHE 2.0','GPL 3.0','BSD 3','None']
         },
         {
             type: 'input',
@@ -43,11 +44,6 @@ inquirer
             type: 'input',
             message: 'Tests?',
             name: 'tests',
-        },
-        {
-            type: 'input',
-            message: 'Questions?',
-            name: 'questions',
         },
         {
             type: 'input',
@@ -67,6 +63,7 @@ ${response.description}
 ## Table of Contents 
 ${response.tableofcontents}
 ## Installation 
+To install necessary dependencies, run the following command:
 ${response.installation}
 ## Usage 
 ${response.usage}
@@ -75,13 +72,10 @@ ${response.license}
 ## Contributors
 ${response.contributors}
 ## Tests 
+To run tests, run the following command:
 ${response.tests}
 ## Questions? 
-${response.questions}
-## Github Email 
-${response.github}
-## Email 
-${response.email}`;
+If you have any questions about the repo, please contact me directly at ${response.email} or to see more of my work, my github username is ${response.github}.`; 
     fs.writeFile('README.md', readMe, (err) => {
         if (err) throw err;
         console.log("README created!")
